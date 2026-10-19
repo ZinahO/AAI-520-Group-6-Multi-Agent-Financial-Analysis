@@ -67,8 +67,8 @@ The completed prompt-chaining data is exported as:
 
 This file provides the structured input required by the routing and specialist-agent workflow.
 
-> The prompt-chaining workflow uses Yahoo Finance to retrieve recent stock news, with a search fallback if no articles are found. Preprocessing keeps the title, summary, publication date, publisher, and URL while removing unnecessary metadata. Gemini generates a numbered research plan, dynamically classifies articles without predefined categories, extracts key financial findings, and summarizes the results. Error handling includes API retries, 15-second delays to manage rate limits, and handling invalid publication dates. The final structured output is passed to the routing and specialist agents for further analysis.
-> 
+The prompt-chaining workflow uses Yahoo Finance to retrieve recent stock news, with a search fallback if no articles are found. Preprocessing keeps the title, summary, publication date, publisher, and URL while removing unnecessary metadata. Gemini generates a numbered research plan, dynamically classifies articles without predefined categories, extracts key financial findings, and summarizes the results. Error handling includes API retries, 15-second delays to manage rate limits, and handling invalid publication dates. The final structured output is passed to the routing and specialist agents for further analysis.
+
 ### 2. Routing and Specialist Agents
 
 The routing and specialist-agent component was developed by Noslinn Tosta. It loads the prompt-chaining JSON file, validates the required fields, routes the processed articles, runs the appropriate Yahoo Finance tools, and generates structured specialist analyses.
@@ -254,7 +254,7 @@ The routing notebook successfully loaded the prompt-chaining output with:
 - Required input fields present
 - Nonempty processed-news collection
 
-> **Contributor completion note — Zinah:** Please add any additional prompt-chaining unit tests, error-handling tests, or output-validation results demonstrated in your final notebook.
+The prompt-chaining workflow was successfully tested using AAPL, retrieving and processing 10 news articles through all five stages. The final output was verified to include the stock symbol, research plan, classified articles, extracted findings, and summary. Error handling includes Gemini API retries, request delays, a Yahoo Finance search fallback, and invalid date handling. No separate automated unit tests were implemented; validation was performed through successful notebook execution and output review.
 
 ### Routing Test
 
