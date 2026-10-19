@@ -67,8 +67,8 @@ The completed prompt-chaining data is exported as:
 
 This file provides the structured input required by the routing and specialist-agent workflow.
 
-> **Contributor completion note — Zinah:** Please verify this description and add any additional details about the news-retrieval criteria, preprocessing rules, research-plan prompt, classification categories, and error handling implemented in the final prompt-chaining notebook.
-
+> The prompt-chaining workflow uses Yahoo Finance to retrieve recent stock news, with a search fallback if no articles are found. Preprocessing keeps the title, summary, publication date, publisher, and URL while removing unnecessary metadata. Gemini generates a numbered research plan, dynamically classifies articles without predefined categories, extracts key financial findings, and summarizes the results. Error handling includes API retries, 15-second delays to manage rate limits, and handling invalid publication dates. The final structured output is passed to the routing and specialist agents for further analysis.
+> 
 ### 2. Routing and Specialist Agents
 
 The routing and specialist-agent component was developed by Noslinn Tosta. It loads the prompt-chaining JSON file, validates the required fields, routes the processed articles, runs the appropriate Yahoo Finance tools, and generates structured specialist analyses.
